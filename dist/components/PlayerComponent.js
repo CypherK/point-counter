@@ -1,3 +1,5 @@
+import {} from'./SlidingCheckboxComponent.js'
+
 class PlayerComponent extends HTMLElement{
     /** @param {String} name the player's name*/
     constructor(name){
@@ -33,7 +35,7 @@ class PlayerComponent extends HTMLElement{
                     <button class='btn-delete-player'>X</button>
                 </div>
                 <div class='score-adder'>
-                    <input class='change-is-positive' type='checkbox'>
+                    <sliding-checkbox class='change-is-positive'></sliding-checkbox>
                     <input class='change-amount' type='number' min='0'>
                     <button class='btn-add-change'>OK</button>
                 </div>
