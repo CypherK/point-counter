@@ -13,7 +13,7 @@ class ApplicationComponent extends HTMLElement{
             <div class='application'>
                 <div class='menubar'>
                     <span><b>${this.gameName}</b></span>
-                    <button type="button">+</button>
+                    <button type="button" class="btn-add-player">+</button>
                 </div>
                 <div class='player-list'>
                     <div>Hello World</div>
