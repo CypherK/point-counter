@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "A simple point counter application, designed to get me more familiar with javascript, node.js, npm and custom html elements.",
   "main": "index.js",
-  "scripts": {},
+  "homepage": "https://cypherk.github.io/point-counter",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
   "author": "Roger Koradi",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "gh-pages": "^3.0.0"
+  }
 }
