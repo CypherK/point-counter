@@ -53,6 +53,11 @@
     font-size: 1.5em;
 }
 
+.change-is-positive {
+    padding-right: .5em;
+    padding-bottom: .25em;
+}
+
 .change-amount{
     flex-grow: 1;
     font-size: inherit;
