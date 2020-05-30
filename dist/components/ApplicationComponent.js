@@ -1,3 +1,5 @@
+import {} from'./PlayerComponent.js'
+
 class ApplicationComponent extends HTMLElement{
     constructor(){
         super()
@@ -25,18 +27,27 @@ class ApplicationComponent extends HTMLElement{
         this.playerList = this.shadow.querySelector('.player-list')
 
         this.addPlayerBtn.onclick = e => this._addNewPlayer()
+
+        //TODO: remove these debugging statments
+        this._appendPlayer('Hakuna')
+        this._appendPlayer('Matata')
     }
 
     _addNewPlayer(){
         let msg = 'Player Name'
         let name = null
         while(!name){
-            name = prompt(msg)
+            name = prompt(msg, '')
             msg = 'Please give the player a name.'
+            if(name == null) return;
         }
+        this._appendPlayer(name)
+    }
 
-        const player = document.createElement('div') //TODO: create a player, instead, and set property
-        player.innerHTML = name
+    /** @param {String} name The name of the player */
+    _appendPlayer(name){
+        const player = document.createElement('point-counter-player')
+        player.setAttribute('player', name)
 
         this.playersPlaceholder.style.display = 'none'
         this.playerList.appendChild(player)
