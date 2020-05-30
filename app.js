@@ -1,4 +1,6 @@
-function init(){
-    const greeting = document.createTextNode("Hello World")
+import {} from'./components/GreetingComponent.js'
+
+window.init = function() {
+    const greeting = document.createElement('x-greeting')
     document.body.appendChild(greeting)
 }
