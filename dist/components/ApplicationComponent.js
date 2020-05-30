@@ -15,7 +15,7 @@ class ApplicationComponent extends HTMLElement{
             <div class='application'>
                 <div class='menubar'>
                     <span><b>${this.gameName}</b></span>
-                    <button type="button" class="btn-add-player">+</button>
+                    <button class="btn-add-player">+</button>
                 </div>
                 <div class='player-list'><div class='placeholder-players'>Please add some players</div></div>
             </div>
@@ -27,6 +27,7 @@ class ApplicationComponent extends HTMLElement{
         this.playerList = this.shadow.querySelector('.player-list')
 
         this.addPlayerBtn.onclick = e => this._addNewPlayer()
+        this.addPlayerBtn.setAttribute('tab-index', -1)
 
         //TODO: remove these debugging statments
         this._appendPlayer('Hakuna')
