@@ -36,7 +36,7 @@ class PlayerComponent extends HTMLElement{
                 </div>
                 <div class='score-adder'>
                     <sliding-checkbox class='change-is-positive'></sliding-checkbox>
-                    <input class='change-amount' type='number' min='0'>
+                    <input class='change-amount' type='number' min='0' siza='1'>
                     <button class='btn-add-change'>OK</button>
                 </div>
                 <div class='score-changes'></div>
