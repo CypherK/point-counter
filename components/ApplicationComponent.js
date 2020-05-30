@@ -15,13 +15,31 @@ class ApplicationComponent extends HTMLElement{
                     <span><b>${this.gameName}</b></span>
                     <button type="button" class="btn-add-player">+</button>
                 </div>
-                <div class='player-list'>
-                    <div>Hello World</div>
-                    <div>Hakuna Matata</div>
-                </div>
+                <div class='player-list'><div class='placeholder-players'>Please add some players</div></div>
             </div>
         `
         this.shadow.innerHTML = template
+
+        this.addPlayerBtn = this.shadow.querySelector('.btn-add-player')
+        this.playersPlaceholder = this.shadow.querySelector('.placeholder-players')
+        this.playerList = this.shadow.querySelector('.player-list')
+
+        this.addPlayerBtn.onclick = e => this._addNewPlayer()
+    }
+
+    _addNewPlayer(){
+        let msg = 'Player Name'
+        let name = null
+        while(!name){
+            name = prompt(msg)
+            msg = 'Please give the player a name.'
+        }
+
+        const player = document.createElement('div') //TODO: create a player, instead, and set property
+        player.innerHTML = name
+
+        this.playersPlaceholder.style.display = 'none'
+        this.playerList.appendChild(player)
     }
 }
 
