@@ -27,7 +27,7 @@ class SlidingCheckboxComponent extends HTMLElement{
     }
 
     get checked(){
-        return _checked
+        return this._checked
     }
 
     updateChecked(){
