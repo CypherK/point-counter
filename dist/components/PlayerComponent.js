@@ -1,8 +1,9 @@
 class PlayerComponent extends HTMLElement{
-    constructor(){
+    /** @param {String} name the player's name*/
+    constructor(name){
         super()
         this.shadow = this.attachShadow({mode: 'closed'});
-        this.playerName = null
+        this.playerName = name
         this.playerScore = 0
     }
 
@@ -17,17 +18,12 @@ class PlayerComponent extends HTMLElement{
             case 'player':
                 if(oldValue === newValue) return
                 this.playerName = newValue
-                this.updateComponent()
                 break
         }
     }
 
     /** called when element is added to the DOM */
     connectedCallback(){
-        this.updateComponent()
-    }
-
-    updateComponent(){
         const template = `
             <link rel='stylesheet' href='./css/components/player.css'>
             <div class='player'>
