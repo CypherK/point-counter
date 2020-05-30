@@ -45,11 +45,27 @@
 }
 
 .score-adder{
+    display: flex;
+    justify-content: center;
+
     padding : .25em;
     background-color: #c2c1be;
+    font-size: 1.5em;
+}
+
+.change-amount{
+    flex-grow: 1;
+    font-size: inherit;
 }
 
 .score-changes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
     padding : .25em;
+    max-height: 5em;
+    overflow-y: auto;
+
     background-color: white;
 }
