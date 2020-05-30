@@ -1,6 +1,8 @@
 import {} from'./components/GreetingComponent.js'
+import {} from'./components/ApplicationComponent.js'
 
 window.init = function() {
-    const greeting = document.createElement('x-greeting')
-    document.body.appendChild(greeting)
+    const app = document.createElement('point-counter-application')
+    const container = document.getElementById('application-container')
+    container.appendChild(app)
 }
