@@ -1,0 +1,10 @@
+{
+  "name": "pointcounter",
+  "version": "1.0.0",
+  "description": "A simple point counter application, designed to get me more familiar with javascript, node.js, npm and custom html elements.",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Roger Koradi",
+  "license": "ISC",
+  "dependencies": {}
+}
