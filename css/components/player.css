@@ -1,0 +1,55 @@
+.player{
+    display: flex;
+    flex-direction: column;
+    margin: .25em;
+    padding: 0;
+    border: solid 1px;
+    min-width: 20em;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgreen;
+    padding: .25em;;
+    font-size: 2em;
+}
+
+.player-name{
+    font-weight: bold;
+}
+
+.player-score{
+    font-family: monospace;
+    font-size: 2em;
+    font-weight: bolder;
+    color: hsl(212, 76%, 59%);
+}
+
+.btn-delete-player{
+    border: hidden;
+    background-color: transparent;
+    color: tomato;
+    font-weight: bolder;
+    font-size: .9em;
+}
+
+.btn-delete-player:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-delete-player:hover {
+    color: thistle;
+}
+
+.score-adder{
+    padding : .25em;
+    background-color: #c2c1be;
+}
+
+.score-changes{
+    padding : .25em;
+    background-color: white;
+}
