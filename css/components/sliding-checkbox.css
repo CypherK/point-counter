@@ -1,6 +1,6 @@
 .sliding-checkbox{
-    width: 80px;
-    height: 40px;
+    width: 4em;
+    height: 2em;
 }
 
 .internal-checkbox{
@@ -14,7 +14,7 @@
     background-color: #c6c6c6;
     outline:none;
 
-    border-radius: 20px;
+    border-radius: 2em;
     box-shadow: inset 0 0 5px rgba(0,0,0, .2);
 }
 
@@ -35,7 +35,7 @@
     
     content: '-';
     text-align: center;
-    line-height: 1.37em;
+    line-height: 1.6em;
     font-size: 2em;
     color: #d42626;
 
@@ -51,7 +51,7 @@
 
 .internal-checkbox:checked::before{
     content: '+';
-    line-height: 1.45em;
+    line-height: 1.75em;
     color: #03f40f;
-    left: 40px;
+    left: 2em;
 }
