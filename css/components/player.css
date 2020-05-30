@@ -59,7 +59,10 @@
 }
 
 .change-amount{
+    resize: horizontal;
+    width: 0px;
     flex-grow: 1;
+    flex-shrink: 1;
     font-size: inherit;
 }
 
