@@ -1,4 +1,5 @@
 import {} from'./SlidingCheckboxComponent.js'
+import {} from'./ScoreChangeComponent.js'
 
 class PlayerComponent extends HTMLElement{
     /** @param {String} name the player's name*/
@@ -63,10 +64,8 @@ class PlayerComponent extends HTMLElement{
         if(!amount) return
         this.changeAmount.value = null
         
-        //TODO: replace with actual component
-        const changeText = document.createTextNode((this.positiveChange.checked ? '+' : '-') + amount)
-        const change = document.createElement('div')
-        change.appendChild(changeText)
+        const change = document.createElement('score-change')
+        change.value =  amount * (this.positiveChange.checked ? 1 : -1)
 
         this.changeList.prepend(change)
     }

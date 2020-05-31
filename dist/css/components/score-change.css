@@ -1,0 +1,59 @@
+.score-change{
+    position: relative;
+    display:flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.number{
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.score-change.positive {
+    color: #10c519;
+}
+
+.score-change.negative {
+    color: #d42626;
+}
+
+.sign{
+    font-weight: bold;
+    padding-right: .25em;
+    text-align: center;
+}
+.amount{
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-right: 1em;
+    text-align: center;
+}
+.btn-delete-change{
+    font-weight: bold;
+    font-size: 1.2em;
+    color: tomato;
+
+    padding: .5em;
+}
+
+.btn-delete-change{
+    border: hidden;
+    background-color: transparent;
+    color: tomato;
+    font-weight: bolder;
+    font-size: .9em;
+}
+
+.btn-delete-change:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-delete-change:hover {
+    color: thistle;
+}
