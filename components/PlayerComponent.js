@@ -40,7 +40,8 @@ class PlayerComponent extends HTMLElement{
                 </div>
                 <div class='score-adder'>
                     <sliding-checkbox class='change-is-positive'></sliding-checkbox>
-                    <input class='change-amount' type='number' min='0' siza='1'>
+                    <!-- the 'onkeydown', here, additionally disallows  'e', '-', '+', '.', etc. while allowing BACKSPACE and DELETE and ARROW keys-->
+                    <input class='change-amount' type='number' min='0' size='1' onkeydown="javascript: return [8,46,37,38,39,40].includes(event.keyCode) || !isNaN(Number(event.key))">
                     <button class='btn-add-change'>OK</button>
                 </div>
                 <div class='score-changes'></div>
@@ -63,6 +64,13 @@ class PlayerComponent extends HTMLElement{
         const changeOkButton = this.shadow.querySelector('.btn-add-change')
         changeOkButton.setAttribute('tab-index', -1)
         changeOkButton.onclick = e => this.addChange()
+
+        this.changeAmount.addEventListener('keyup', e => {222
+            if(e.keyCode === 13){
+                e.preventDefault()
+                changeOkButton.click()
+            }
+        })
     }
 
     addChange(){

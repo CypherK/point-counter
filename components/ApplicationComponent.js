@@ -35,10 +35,6 @@ class ApplicationComponent extends HTMLElement{
         this.clearChangesBtn = this.shadow.querySelector('.btn-clear-changes')
         this.clearChangesBtn.onclick = e => this._clearChanges()
         this.clearChangesBtn.setAttribute('tab-index', -1)
-
-        //TODO: remove these debugging statments
-        this._appendPlayer('Hakuna')
-        this._appendPlayer('Matata')
     }
 
     _addNewPlayer(){
