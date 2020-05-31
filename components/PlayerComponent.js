@@ -1,4 +1,5 @@
 import {} from'./SlidingCheckboxComponent.js'
+import {} from'./ScoreChangeComponent.js'
 
 class PlayerComponent extends HTMLElement{
     /** @param {String} name the player's name*/
@@ -20,6 +21,9 @@ class PlayerComponent extends HTMLElement{
             case 'player':
                 if(oldValue === newValue) return
                 this.playerName = newValue
+                if(!!this.playerNameHolder){
+                    this.playerNameHolder.innerHTML = this.playerNameHolder
+                }
                 break
         }
     }
@@ -44,6 +48,9 @@ class PlayerComponent extends HTMLElement{
         `
         this.shadow.innerHTML = template
 
+        this.playerNameHolder = this.shadow.querySelector('.player-name')
+        this.playerScoreHolder = this.shadow.querySelector('.player-score')
+
         const deleteButton = this.shadow.querySelector('.btn-delete-player')
         deleteButton.onclick = e => this.parentElement.removeChild(this)
 
@@ -63,12 +70,20 @@ class PlayerComponent extends HTMLElement{
         if(!amount) return
         this.changeAmount.value = null
         
-        //TODO: replace with actual component
-        const changeText = document.createTextNode((this.positiveChange.checked ? '+' : '-') + amount)
-        const change = document.createElement('div')
-        change.appendChild(changeText)
+        const change = document.createElement('score-change')
+        change.value =  amount * (this.positiveChange.checked ? 1 : -1)
+        change.onDetach = () => this.recalculateScore()
 
         this.changeList.prepend(change)
+        this.recalculateScore()
+    }
+
+    recalculateScore(){
+        this.playerScore = Array
+            .from(this.changeList.children)
+            .reduce((total, element) => total + element.value, 0)
+
+        this.playerScoreHolder.innerHTML = this.playerScore
     }
 }
 

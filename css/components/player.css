@@ -69,11 +69,15 @@
 .score-changes{
     display: flex;
     flex-direction: column;
-    align-items: center;
     
     padding : .25em;
     max-height: 5em;
     overflow-y: auto;
 
     background-color: white;
+}
+
+score-change {
+    display: flex;
+    align-items: center;
 }
