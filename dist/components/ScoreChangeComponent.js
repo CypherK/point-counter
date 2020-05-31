@@ -3,6 +3,7 @@ class ScoreChangeComponent extends HTMLElement{
         super()
         this.shadow = this.attachShadow({mode: 'closed'})
         this._value = 0
+        this.onDetach = () => {}
     }
 
     set value(v){
@@ -44,6 +45,9 @@ class ScoreChangeComponent extends HTMLElement{
         }
     }
 
+    disconnectedCallback(){
+        this.onDetach()
+    }
 }
 
 //registration requires the tag to contain a hyphen
