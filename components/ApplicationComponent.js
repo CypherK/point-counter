@@ -15,19 +15,26 @@ class ApplicationComponent extends HTMLElement{
             <div class='application'>
                 <div class='menubar'>
                     <span><b>${this.gameName}</b></span>
-                    <button class="btn-add-player">+</button>
+                    <div class='buttons'></buttons>
+                        <button class="btn-clear-changes">C</button>
+                        <button class="btn-add-player">+</button>
+                    </div>
                 </div>
                 <div class='player-list'><div class='placeholder-players'>Please add some players</div></div>
             </div>
         `
         this.shadow.innerHTML = template
 
-        this.addPlayerBtn = this.shadow.querySelector('.btn-add-player')
         this.playersPlaceholder = this.shadow.querySelector('.placeholder-players')
         this.playerList = this.shadow.querySelector('.player-list')
 
+        this.addPlayerBtn = this.shadow.querySelector('.btn-add-player')
         this.addPlayerBtn.onclick = e => this._addNewPlayer()
         this.addPlayerBtn.setAttribute('tab-index', -1)
+
+        this.clearChangesBtn = this.shadow.querySelector('.btn-clear-changes')
+        this.clearChangesBtn.onclick = e => this._clearChanges()
+        this.clearChangesBtn.setAttribute('tab-index', -1)
 
         //TODO: remove these debugging statments
         this._appendPlayer('Hakuna')
@@ -52,6 +59,23 @@ class ApplicationComponent extends HTMLElement{
 
         this.playersPlaceholder.style.display = 'none'
         this.playerList.appendChild(player)
+    }
+
+    recalculateScore(){
+        this.playerScore = Array
+            .from(this.changeList.children)
+            .reduce((total, element) => total + element.value, 0)
+
+        this.playerScoreHolder.innerHTML = this.playerScore
+    }
+
+    _clearChanges(){
+        Array
+            .from(this.playerList.children)
+            .forEach(player => {
+                if(player === this.playersPlaceholder) return
+                player.clearChanges()
+            })
     }
 }
 

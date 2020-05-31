@@ -85,6 +85,13 @@ class PlayerComponent extends HTMLElement{
 
         this.playerScoreHolder.innerHTML = this.playerScore
     }
+
+    clearChanges(){
+        const changes = this.changeList
+        while(changes.firstChild){
+            changes.removeChild(changes.lastChild)
+        }
+    }
 }
 
 //registration requires the tag to contain a hyphen
