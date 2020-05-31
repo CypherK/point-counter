@@ -18,7 +18,7 @@
     color: white;
 }
 
-.btn-add-player {
+button {
     font-size: 1em;
     width: auto;
     border-radius: 10%;
@@ -27,7 +27,7 @@
     background-color: transparent;
 }
 
-.btn-add-player:hover {
+button:hover {
     color: hsl(212, 76%, 59%);
     border-color: hsl(212, 76%, 59%);
 }
