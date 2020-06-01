@@ -70,6 +70,14 @@ class PlayerComponent extends HTMLElement{
                 e.preventDefault()
                 changeOkButton.click()
             }
+            if(e.key ==='-'){ //minus
+                e.preventDefault()
+                this.positiveChange.checked = false
+            }
+            if(e.key === '+'){ //plus
+                e.preventDefault()
+                this.positiveChange.checked = true
+            }
         })
     }
 
