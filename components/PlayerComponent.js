@@ -85,13 +85,17 @@ class PlayerComponent extends HTMLElement{
         const amount = this.changeAmount.value
         if(!amount) return
         this.changeAmount.value = null
-        
+        const value =  amount * (this.positiveChange.checked ? 1 : -1)
+        this.prependChange(value, true)
+    }
+
+    prependChange(value, doRecalculate){
         const change = document.createElement('score-change')
-        change.value =  amount * (this.positiveChange.checked ? 1 : -1)
+        change.value = value
         change.onDetach = () => this.recalculateScore()
 
         this.changeList.prepend(change)
-        this.recalculateScore()
+        if(doRecalculate) this.recalculateScore()
     }
 
     recalculateScore(){
@@ -107,6 +111,16 @@ class PlayerComponent extends HTMLElement{
         while(changes.firstChild){
             changes.removeChild(changes.lastChild)
         }
+    }
+
+    get name(){
+        return this.playerName
+    }
+
+    get changes(){
+        return Array
+            .from(this.changeList.children)
+            .map(c => c.value)
     }
 }
 
